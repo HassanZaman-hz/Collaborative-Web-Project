@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billie Eilish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="home.html">
+        <button class="back-btn" onclick="history.back()">← Back</button>
+    </a>
+    <div class="container">
+        <div class="header">
+            <div class="artist-image"><img style="width: 200px; border-radius: 50%;" src="pfps/billie eilish.jpg" alt="Billie Eilish"></div>
+            <h1>Billie Eilish</h1>
+            <div class="subtitle">Popular Songs</div>
+            <div class="song-count">5 tracks available</div>
+        </div>
+
+        <div class="songs-container">
+            <div class="song-item" onclick="playSong(0, 'Bad Guy', '3:14', 'songs/Billie Eilish - bad guy (Lyrics)-320.mp3')">
+                <div class="song-number">01</div>
+                <div class="song-info">
+                    <div class="song-title">Bad Guy</div>
+                    <div class="song-duration">3:14</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(1, 'Happier Than Ever', '4:58', 'songs/happier.mpeg')">
+                <div class="song-number">02</div>
+                <div class="song-info">
+                    <div class="song-title">Happier Than Ever</div>
+                    <div class="song-duration">4:58</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(2, 'Ocean Eyes', '3:20', 'songs/ocean eyes.mpeg')">
+                <div class="song-number">03</div>
+                <div class="song-info">
+                    <div class="song-title">Ocean Eyes</div>
+                    <div class="song-duration">3:20</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(3, 'Therefore I Am', '2:53', 'songs/therefore.mpeg')">
+                <div class="song-number">04</div>
+                <div class="song-info">
+                    <div class="song-title">Therefore I Am</div>
+                    <div class="song-duration">2:53</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(4, 'Lovely', '3:20', 'songs/lovely.mp3')">
+                <div class="song-number">05</div>
+                <div class="song-info">
+                    <div class="song-title">Lovely</div>
+                    <div class="song-duration">3:20</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
