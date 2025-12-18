@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>The Weeknd</title>
+</head>
+<body>
+    <a href="home.html">
+        <button class="back-btn" onclick="history.back()">← Back</button>
+    </a>
+    <div class="container">
+        <div class="header">
+            <div class="artist-image"><img style="width: 200px; border-radius: 50%;" src="pfps/After Hours The Weeknd.jpg" alt="The Weeknd"></div>
+            <h1>The Weeknd</h1>
+            <div class="subtitle">Popular Songs</div>
+            <div class="song-count">5 tracks available</div>
+        </div>
+
+        <div class="songs-container">
+            <div class="song-item" onclick="playSong(0, 'Blinding Lights', '3:20', 'songs/blinding ligths.mpeg')">
+                <div class="song-number">01</div>
+                <div class="song-info">
+                    <div class="song-title">Blinding Lights</div>
+                    <div class="song-duration">3:20</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(1, 'Starboy', '3:50', 'songs/starboy.mpeg')">
+                <div class="song-number">02</div>
+                <div class="song-info">
+                    <div class="song-title">Starboy</div>
+                    <div class="song-duration">3:50</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(2, 'Save Your Tears', '3:35', 'songs/save tears.mpeg')">
+                <div class="song-number">03</div>
+                <div class="song-info">
+                    <div class="song-title">Save Your Tears</div>
+                    <div class="song-duration">3:35</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(3, 'The Hills', '4:02', 'songs/hills.mpeg')">
+                <div class="song-number">04</div>
+                <div class="song-info">
+                    <div class="song-title">The Hills</div>
+                    <div class="song-duration">4:02</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+
+            <div class="song-item" onclick="playSong(4, 'Can\'t Feel My Face', '3:33', 'songs/cant feel.mpeg')">
+                <div class="song-number">05</div>
+                <div class="song-info">
+                    <div class="song-title">Can't Feel My Face</div>
+                    <div class="song-duration">3:33</div>
+                </div>
+                <div class="play-icon">▶</div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
