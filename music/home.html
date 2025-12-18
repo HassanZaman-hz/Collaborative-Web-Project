@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>GoonMusic</title>
+</head>
+<body>
+    <div class="container">
+        <h1>GoonMusic</h1>
+        <h2>Select Your Favorite Artist</h2>
+
+        <div class="artists-grid">
+            <div class="artist-card" onclick="selectArtist('The Weeknd', this)">
+                <div class="artist-icon"><img style="width: 200px; border-radius: 50%;" src="pfps/After Hours The Weeknd.jpg" alt="The Weeknd"></div>
+                <div class="artist-name">The Weeknd</div>
+                <div class="artist-songs">Blinding Lights • Starboy • Save Your Tears</div>
+                <a href="weeknd.html">
+                    <button class="select-btn">Select Artist</button>
+                </a>
+            </div>
+
+            <div class="artist-card" onclick="selectArtist('Billie Eilish', this)">
+                <div class="artist-icon"><img style="width: 200px; border-radius: 50%;" src="pfps/billie eilish.jpg" alt="Billie Eilish"></div>
+                <div class="artist-name">Billie Eilish</div>
+                <div class="artist-songs">Bad Guy • Happier Than Ever • Ocean Eyes</div>
+                <a href="Billie.html">
+                    <button class="select-btn">Select Artist</button>
+                </a>
+            </div>
+
+            <div class="artist-card" onclick="selectArtist('The Chainsmokers', this)">
+                <div class="artist-icon"><img style="width: 200px; border-radius: 50%;" src="pfps/The chainsmoker.jpg" alt="The Chainsmoker"></div>
+                <div class="artist-name">The Chainsmokers</div>
+                <div class="artist-songs">Closer • Don't Let Me Down • Something Just Like This</div>
+                <a href="Chainsmoker.html">
+                    <button class="select-btn">Select Artist</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="selection-display">
+            <h3 id="selectedArtist">No artist selected yet</h3>
+            <div class="selected-text" id="artistName"></div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCard = null;
+
+        function selectArtist(artistName, card) {
+            // Remove previous selection
+            if (selectedCard) {
+                selectedCard.classList.remove('selected');
+            }
+
+            // Add selection to clicked card
+            card.classList.add('selected');
+            selectedCard = card;
+
+            // Update display
+            document.getElementById('selectedArtist').textContent = 'You selected:';
+            document.getElementById('artistName').textContent = artistName;
+        }
+    </script>
+</body>
+</html>
