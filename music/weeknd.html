@@ -64,7 +64,113 @@
                 <div class="play-icon">▶</div>
             </div>
         </div>
+
+        <div class="player-section">
+            <div class="now-playing">
+                <h3>Now Playing</h3>
+                <div class="current-song-title" id="currentSong">Select a song to play</div>
+                <div class="current-artist" id="currentArtist"></div>
+            </div>
+
+            <audio id="audioPlayer" controls>
+                Your browser does not support the audio element.
+            </audio>
+
+            <div class="controls">
+                <button class="control-btn" onclick="previousSong()">⏮️ Previous</button>
+                <button class="control-btn" onclick="playPause()" id="playBtn">▶️ Play</button>
+                <button class="control-btn" onclick="nextSong()">⏭️ Next</button>
+            </div>
+
+            <div class="upload-section">
+                <input type="file" id="musicFile" accept="audio/*" onchange="loadCustomMusic(event)">
+                <label for="musicFile" class="file-label">📁 Upload Audio File</label>
+                <div class="upload-text">Upload your own music file to play</div>
+            </div>
         </div>
     </div>
+
+    <script>
+        const songs = [
+            { title: "Blinding Lights", duration: "3:20", file: "songs/blinding ligths.mpeg" },
+            { title: "Starboy", duration: "3:50", file: "songs/starboy.mpeg" },
+            { title: "Save Your Tears", duration: "3:35", file: "songs/save tears.mpeg" },
+            { title: "The Hills", duration: "4:02", file: "songs/hills.mpeg" },
+            { title: "Can't Feel My Face", duration: "3:33", file: "songs/cant feel.mpeg" }
+        ];
+
+        let currentSongIndex = -1;
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+
+        function playSong(index, title, duration, filePath) {
+            currentSongIndex = index;
+            
+            document.querySelectorAll('.song-item').forEach(item => item.classList.remove('playing'));
+            document.querySelectorAll('.song-item')[index].classList.add('playing');
+            
+            document.getElementById('currentSong').textContent = title;
+            document.getElementById('currentArtist').textContent = 'The Weeknd';
+            
+            if (filePath && filePath !== '') {
+                audio.src = filePath;
+                audio.load();
+                audio.play();
+                playBtn.textContent = '⏸️ Pause';
+            } else {
+                alert(`"${title}" by The Weeknd would play here.\n\nTo actually play music, upload an audio file using the button below!`);
+            }
+        }
+
+        function playPause() {
+            if (audio.src && audio.src !== window.location.href) {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸️ Pause';
+                } else {
+                    audio.pause();
+                    playBtn.textContent = '▶️ Play';
+                }
+            } else {
+                alert('Please select a song or upload a music file first!');
+            }
+        }
+
+        function nextSong() {
+            if (currentSongIndex < 0) {
+                currentSongIndex = 0;
+            } else {
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+            }
+            playSong(currentSongIndex, songs[currentSongIndex].title, songs[currentSongIndex].duration, songs[currentSongIndex].file);
+        }
+
+        function previousSong() {
+            if (currentSongIndex < 0) {
+                currentSongIndex = songs.length - 1;
+            } else {
+                currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            }
+            playSong(currentSongIndex, songs[currentSongIndex].title, songs[currentSongIndex].duration, songs[currentSongIndex].file);
+        }
+
+        function loadCustomMusic(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                audio.src = url;
+                
+                document.getElementById('currentSong').textContent = file.name;
+                document.getElementById('currentArtist').textContent = 'Custom Upload';
+                
+                playBtn.textContent = '▶️ Play';
+            }
+        }
+
+        audio.addEventListener('ended', function() {
+            playBtn.textContent = '▶️ Play';
+            nextSong();
+        });
+    </script>
 </body>
 </html>
