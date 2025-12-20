@@ -9,6 +9,8 @@
 <body>
     <div class="container">
         <h1>GoonMusic</h1>
+        
+        <h2 id="output"></h2>
         <h2>Select Your Favorite Artist</h2>
 
         <div class="artists-grid">
@@ -47,6 +49,10 @@
     </div>
 
     <script>
+        const params = new URLSearchParams(window.location.search);
+    let name = params.get("named");
+    document.getElementById("output").innerHTML =
+    "HI " + name ;
         let selectedCard = null;
 
         function selectArtist(artistName, card) {
